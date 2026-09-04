@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Paul Quemin — Hands-on Technical Director. Links to projects, experiments, and game trailers.">
+  <title>Paul Quemin — Links</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --purple: #8A2BE2;
+      --purple-light: #B070F0;
+      --purple-dark: #6A1DB0;
+      --gray-900: #1a1a1a;
+      --gray-700: #333;
+      --gray-500: #666;
+      --gray-300: #bbb;
+      --gray-100: #f5f5f5;
+      --white: #fff;
+      --max-w: 540px;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      color: var(--gray-700);
+      background: var(--gray-100);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: var(--max-w);
+      padding: 2rem 1.25rem 3rem;
+      flex: 1;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      letter-spacing: -0.01em;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-top: 0.25rem;
+    }
+
+    .header .accent-line {
+      width: 48px;
+      height: 3px;
+      background: var(--purple);
+      border-radius: 2px;
+      margin: 0.75rem auto 0;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      margin-bottom: 1.75rem;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--purple);
+      margin-bottom: 0.625rem;
+      padding-left: 0.125rem;
+    }
+
+    /* ---- Link list ---- */
+    .links {
+      list-style: none;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .links li + li {
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.7rem 0.875rem;
+      text-decoration: none;
+      color: var(--gray-700);
+      font-size: 0.875rem;
+      transition: background 0.15s ease;
+    }
+
+    .links a:hover,
+    .links a:focus-visible {
+      background: var(--gray-100);
+    }
+
+    .links a:focus-visible {
+      outline: 2px solid var(--purple);
+      outline-offset: -2px;
+    }
+
+    .link-label {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-label .title {
+      display: block;
+      font-weight: 500;
+      color: var(--gray-900);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .link-label .subtitle {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .link-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--gray-300);
+    }
+
+    .links a:hover .link-icon,
+    .links a:focus-visible .link-icon {
+      color: var(--purple);
+    }
+
+    /* Icon glyphs via CSS — no external assets */
+    .icon-mail::before { content: "\2709"; }
+    .icon-linkedin::before { content: "\1F4BC"; font-size: 14px; }
+    .icon-github::before { content: "\2B24"; font-size: 10px; }
+    .icon-code::before { content: "\2328"; }
+    .icon-play::before { content: "\25B6"; font-size: 11px; }
+    .icon-yt::before { content: "\25CF"; font-size: 12px; color: #E53935; }
+
+    .link-icon.icon-mail::before,
+    .link-icon.icon-linkedin::before,
+    .link-icon.icon-github::before,
+    .link-icon.icon-code::before,
+    .link-icon.icon-play::before,
+    .link-icon.icon-yt::before {
+      color: inherit;
+    }
+
+    /* ---- Subtle games grid ---- */
+    .games-list .links a {
+      padding: 0.55rem 0.875rem;
+    }
+
+    .games-list .link-label .title {
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+
+    /* ---- Footer ---- */
+    .footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.7rem;
+      color: var(--gray-300);
+    }
+
+    /* ---- Focus for keyboard users ---- */
+    @media (prefers-reduced-motion: reduce) {
+      .links a {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="header">
+      <h1>Paul Quemin</h1>
+      <p>Hands-on Technical Director &mdash; Engine, Rendering &amp; Tools</p>
+      <div class="accent-line" aria-hidden="true"></div>
+    </header>
+
+    <section class="section" aria-label="Contact">
+      <h2 class="section-title">Contact</h2>
+      <ul class="links">
+        <li>
+          <a href="mailto:paul.quemin@gmail.com">
+            <span class="link-icon icon-mail" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">paul.quemin@gmail.com</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/paulquemin/">
+            <span class="link-icon icon-linkedin" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">LinkedIn</span>
+              <span class="subtitle">linkedin.com/in/paulquemin</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/poppolopoppo">
+            <span class="link-icon icon-github" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">GitHub</span>
+              <span class="subtitle">github.com/poppolopoppo</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-label="Projects">
+      <h2 class="section-title">Projects</h2>
+      <ul class="links">
+        <li>
+          <a href="https://github.com/poppolopoppo/ppe">
+            <span class="link-icon icon-code" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">PPE</span>
+              <span class="subtitle">C++ engine playground &mdash; rendering experiments</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/poppolopoppo/ppr">
+            <span class="link-icon icon-code" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">PPR</span>
+              <span class="subtitle">C++ rendering playground</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/poppolopoppo/ppb">
+            <span class="link-icon icon-code" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">PPB</span>
+              <span class="subtitle">Go build system &mdash; distribution, caching, I/O detouring</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/fastbuild/fastbuild">
+            <span class="link-icon icon-code" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">FastBuild</span>
+              <span class="subtitle">Open-source build system &mdash; contributions</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-label="Experiments">
+      <h2 class="section-title">Experiments</h2>
+      <ul class="links">
+        <li>
+          <a href="https://youtube.com/playlist?list=PL2gWpbfdWO9KcBVcLLMgEYhqm6P6ij-2b&amp;si=sbATU2Lq2ulHBi2a">
+            <span class="link-icon icon-yt" aria-hidden="true"></span>
+            <span class="link-label">
+              <span class="title">Rendering experiments</span>
+              <span class="subtitle">Shadertoy, Compute.Toys &amp; programmer art</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section games-list" aria-label="Game trailers">
+      <h2 class="section-title">Official Game Trailers</h2>
+      <ul class="links">
+        <li>
+          <a href="https://www.youtube.com/watch?v=RAs02HDepc4">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Aphelion</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=IaB0MyubRg0">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Banishers: Ghosts of New Eden</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=6WorCBu7ZsI">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Jusant</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=1Hz7y6PRchk">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Harmony: The Fall of Reverie</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=DRN2VgTB-J8">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Tell Me Why</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=EEgfr0Zd-8o">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Vampyr</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=vfs3IIiY_1s">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Act of Aggression</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=lw3az0LsKc0">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Wargame: Red Dragon</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=IbXaAu6kgNc">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Wargame: AirLand Battle</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=fPyWhf0VQbs">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">Wargame: European Escalation</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=Ugz1O7IqRMw">
+            <span class="link-icon icon-play" aria-hidden="true"></span>
+            <span class="link-label"><span class="title">R.U.S.E.</span></span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Paul Quemin &bull; Rouen, France
+  </footer>
+</body>
+</html>
