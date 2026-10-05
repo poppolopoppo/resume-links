@@ -617,12 +617,120 @@
 
     .image-failed img { display: none; }
 
+    .timeline-panel { margin-top: 1.25rem; }
+
+    .timeline { display: grid; }
+
+    .t-item {
+      position: relative;
+      padding: 0 0 1.05rem 1.35rem;
+      border-left: 2px solid var(--border);
+      margin-left: 0.3rem;
+    }
+
+    .t-item:last-child { padding-bottom: 0; }
+
+    .t-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 0.4rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #4a80ef, #b547b6);
+      box-shadow: 0 0 0 3px var(--page);
+    }
+
+    .t-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.4rem 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .t-role { font-weight: 750; font-size: 0.92rem; }
+
+    .t-when {
+      color: var(--faint);
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .t-where { color: var(--violet); font-size: 0.74rem; font-weight: 700; }
+
+    .t-note {
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      max-width: 52rem;
+    }
+
+    .t-sub {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .t-sub .t-note { margin-top: 0.35rem; }
+
+    a.game-info-copy {
+      text-decoration: none;
+      color: inherit;
+      border-radius: 6px;
+    }
+
+    a.game-info-copy:focus-visible,
+    .mini-link:focus-visible,
+    .exp-details summary:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .mini-link {
+      align-self: center;
+      flex: 0 0 auto;
+      padding: 0.32rem 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.10);
+      font-size: 0.66rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 160ms ease;
+    }
+
+    .mini-link:hover { background: rgba(255, 255, 255, 0.22); }
+
+    .exp-details summary { list-style: none; cursor: pointer; }
+    .exp-details summary::-webkit-details-marker { display: none; }
+    .exp-details summary .arrow { transition: transform 160ms ease; }
+    .exp-details[open] summary .arrow { transform: rotate(90deg); }
+
+    .video-wrap {
+      margin-top: 0.8rem;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-wrap iframe { display: block; width: 100%; height: 100%; border: 0; }
+
     .footer {
       padding: 1.6rem 0 0.3rem;
       color: var(--faint);
       text-align: center;
       font-size: 0.72rem;
     }
+
+    .footer a { color: var(--muted); }
 
     @media (max-width: 780px) {
       .primary-grid { grid-template-columns: 1fr; }
@@ -665,6 +773,8 @@
         transform: none;
       }
       .game-info .arrow { color: var(--faint); }
+      .mini-link { color: var(--text); border-color: var(--border); background: var(--row); }
+      .mini-link:hover { background: var(--row-hover); }
     }
 
     @media (max-width: 360px) {
@@ -724,12 +834,65 @@
         </div>
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">19 years · 11 shipped games</p>
+        <p class="eyebrow">17 years · 11 shipped games</p>
         <h1>Paul Quemin</h1>
         <p class="hero-lead">Hands-on technical leadership across engine, rendering &amp; tools.</p>
         <div class="hero-meta"><span>Cross-project leadership</span><span>Engine strategy</span><span>C++ 11–23</span><span>Unreal Engine 4/5</span><span>Rendering</span><span>Tools &amp; pipelines</span><span>PC &amp; consoles</span><span>Rouen, France</span></div>
       </div>
     </header>
+
+    <section class="panel timeline-panel" aria-labelledby="exp-title">
+      <div class="section-heading"><div><p class="section-kicker">Background</p><h2 id="exp-title">Experience</h2></div><span class="count">7 roles</span></div>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-head"><span class="t-role">Studio Technical Director · DON'T NOD</span><span class="t-when">Oct 2023 — Present</span></div>
+          <div class="t-where">Paris, France</div>
+          <p class="t-note">Technical and organisational leadership for the Paris studio: steering committee representation, discipline-lead structure across engine, graphics, gameplay, animation and tools, migration to the Horde/Zen build ecosystem, coaching and hiring.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-head"><span class="t-role">Engine Director · DON'T NOD</span><span class="t-when">Jan 2021 — Oct 2023</span></div>
+          <div class="t-where">Paris, France</div>
+          <p class="t-note">Cross-project engine team (~16 developers, 3 discipline leads), unifying productions on a single shared Unreal fork and staging the UE4 to UE5 migration; hands-on review across rendering, animation, online and tooling.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-head"><span class="t-role">Lead Engine Programmer · DON'T NOD</span><span class="t-when">Jun 2019 — Jan 2021</span></div>
+          <div class="t-where">Paris, France</div>
+          <p class="t-note">Led an 8-person engine team with mentoring, onboarding and structured technical reviews; moved the studio from Perforce to a Git monorepo workflow.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-head"><span class="t-role">Senior Engine Developer · DON'T NOD</span><span class="t-when">Mar 2016 — Jun 2019</span></div>
+          <div class="t-where">Paris, France</div>
+          <p class="t-note">Open-world stabilisation, profiling and streaming/world pipeline for Vampyr and Tell Me Why across PC, PS4 and Xbox One.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-head"><span class="t-role">3D Lead Developer · Eugen Systems</span><span class="t-when">May 2014 — Mar 2016</span></div>
+          <div class="t-where">Paris, France</div>
+          <p class="t-note">Led 6 engine/graphics developers on Act of Aggression: virtual-texture terrain, procedural generation, lighting R&amp;D.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-head"><span class="t-role">3D Developer · Eugen Systems</span><span class="t-when">Sep 2009 — May 2014</span></div>
+          <div class="t-where">Paris, France</div>
+          <p class="t-note">Terrain rendering, level-generation tools, asset compression and console support across R.U.S.E. and the Wargame series.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-head"><span class="t-role">Internships — 3D/Engine &amp; Tools · Eugen Systems</span><span class="t-when">Sep 2007 — Sep 2009</span></div>
+          <div class="t-where">Paris, France</div>
+          <p class="t-note">Gameplay visualisation tools and CI/tools automation.</p>
+        </div>
+      </div>
+      <div class="t-sub">
+        <p class="section-kicker">Summary</p>
+        <p class="t-note">Technical Director with 17 years in games, from engine and rendering programming on RTS titles to leading the engine department at DON'T NOD across Unreal Engine 4 and 5 productions. I came up through the code, I still build things myself, and I lead by listening — looking for a Technical Director role at a studio that ships well.</p>
+      </div>
+      <div class="t-sub">
+        <p class="section-kicker">Education</p>
+        <p class="t-note"><strong>EPITA</strong> — Master of Science in Computer Science, AI &amp; Data Science specialization · Paris, France · Sep 2009</p>
+      </div>
+      <div class="t-sub">
+        <p class="section-kicker">Skills</p>
+        <p class="t-note">C++ (11–23) · Unreal Engine 4/5 · Rendering (Nanite, VSM, Virtual Texturing) · Procedural generation · Streaming (WorldPartition, WorldComposition) · Profiling &amp; memory · HLSL/GLSL · C# · Go · Python · Git · Perforce · Horde · CI · PIX · RenderDoc · LLVM · PC/PS3–PS5 · Xbox · Switch</p>
+      </div>
+    </section>
 
     <div class="primary-grid">
       <section class="panel" aria-labelledby="contact-title">
@@ -738,8 +901,8 @@
           <li><a class="link-card" href="mailto:paul.quemin@gmail.com"><span class="icon-tile tone-mail"><svg aria-hidden="true"><use href="#icon-envelope"/></svg></span><span class="link-copy"><span class="link-title">Email</span><span class="link-subtitle">paul.quemin@gmail.com</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
           <li><a class="link-card" href="https://www.linkedin.com/in/paulquemin/"><span class="icon-tile tone-linkedin"><svg aria-hidden="true"><use href="#icon-linkedin"/></svg></span><span class="link-copy"><span class="link-title">LinkedIn</span><span class="link-subtitle">linkedin.com/in/paulquemin</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
           <li><a class="link-card" href="https://github.com/poppolopoppo"><span class="icon-tile tone-github"><svg aria-hidden="true"><use href="#icon-github"/></svg></span><span class="link-copy"><span class="link-title">GitHub</span><span class="link-subtitle">github.com/poppolopoppo</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
-          <li><a class="link-card" href="https://www.mobygames.com/person/1375161/paul-quemin/"><span class="icon-tile tone-games"><svg aria-hidden="true"><use href="#icon-gamepad"/></svg></span><span class="link-copy"><span class="link-title">MobyGames · Paul Quemin</span><span class="link-subtitle">Credits profile 1375161</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
-          <li><a class="link-card" href="https://www.mobygames.com/person/446453/paul-quemin/"><span class="icon-tile tone-games"><svg aria-hidden="true"><use href="#icon-gamepad"/></svg></span><span class="link-copy"><span class="link-title">MobyGames · Paul Quémin</span><span class="link-subtitle">Credits profile 446453</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
+          <li><a class="link-card" href="https://www.mobygames.com/person/1375161/paul-quemin/"><span class="icon-tile tone-games"><svg aria-hidden="true"><use href="#icon-gamepad"/></svg></span><span class="link-copy"><span class="link-title">MobyGames · Paul Quemin</span><span class="link-subtitle">Profile 1375161 · unaccented spelling</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
+          <li><a class="link-card" href="https://www.mobygames.com/person/446453/paul-quemin/"><span class="icon-tile tone-games"><svg aria-hidden="true"><use href="#icon-gamepad"/></svg></span><span class="link-copy"><span class="link-title">MobyGames · Paul Quémin</span><span class="link-subtitle">Profile 446453 · name accented (Quémin)</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a></li>
         </ul>
       </section>
 
@@ -756,7 +919,12 @@
 
         <section class="panel" aria-labelledby="experiments-title">
           <div class="section-heading"><div><p class="section-kicker">Explore</p><h2 id="experiments-title">Rendering experiments</h2></div></div>
-          <a class="link-card experiment-card" href="https://youtube.com/playlist?list=PL2gWpbfdWO9KcBVcLLMgEYhqm6P6ij-2b&amp;si=sbATU2Lq2ulHBi2a"><span class="icon-tile tone-video"><svg aria-hidden="true"><use href="#icon-youtube"/></svg></span><span class="link-copy"><span class="link-title">Watch the playlist</span><span class="link-subtitle">Shadertoy, Compute.Toys &amp; programmer art</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+          <details class="exp-details">
+            <summary class="link-card experiment-card"><span class="icon-tile tone-video"><svg aria-hidden="true"><use href="#icon-youtube"/></svg></span><span class="link-copy"><span class="link-title">Shader reel — watch the playlist</span><span class="link-subtitle">Shadertoy, Compute.Toys &amp; programmer art · click to expand</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></summary>
+            <div class="video-wrap">
+              <iframe loading="lazy" title="Shader reel YouTube playlist" src="https://www.youtube-nocookie.com/embed/videoseries?list=PL2gWpbfdWO9KcBVcLLMgEYhqm6P6ij-2b" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </details>
         </section>
       </div>
     </div>
@@ -765,21 +933,21 @@
       <div class="section-heading"><div><p class="section-kicker">Selected work</p><h2 id="games-title">Official game trailers</h2></div><span class="count">11 titles</span></div>
       <!-- Thumbnails are optimized local derivatives of official key art from dont-nod.com and eugensystems.com. -->
       <div class="game-grid">
-        <a class="game-card" href="https://www.youtube.com/watch?v=RAs02HDepc4"><span class="game-media"><img src="assets/games/aphelion.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Aphelion</span><span class="game-label">Official trailer · Studio Technical Director</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=IaB0MyubRg0"><span class="game-media"><img src="assets/games/banishers.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Banishers: Ghosts of New Eden</span><span class="game-label">Official trailer · Engine Director</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=6WorCBu7ZsI"><span class="game-media"><img src="assets/games/jusant.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Jusant</span><span class="game-label">Official trailer · Engine Director</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=1Hz7y6PRchk"><span class="game-media"><img src="assets/games/harmony.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Harmony: The Fall of Reverie</span><span class="game-label">Official trailer · Engine Director</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=DRN2VgTB-J8"><span class="game-media"><img src="assets/games/tell-me-why.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Tell Me Why</span><span class="game-label">Official trailer · Senior Engine Developer</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=EEgfr0Zd-8o"><span class="game-media"><img src="assets/games/vampyr.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Vampyr</span><span class="game-label">Official trailer · Senior Engine Developer</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=vfs3IIiY_1s"><span class="game-media"><img src="assets/games/act-of-aggression.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Act of Aggression</span><span class="game-label">Official trailer · 3D Lead Developer</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=lw3az0LsKc0"><span class="game-media"><img src="assets/games/wargame-red-dragon.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Wargame: Red Dragon</span><span class="game-label">Official trailer · 3D Developer</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=IbXaAu6kgNc"><span class="game-media"><img src="assets/games/wargame-airland-battle.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Wargame: AirLand Battle</span><span class="game-label">Official trailer · 3D Developer</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=fPyWhf0VQbs"><span class="game-media"><img src="assets/games/wargame-european-escalation.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">Wargame: European Escalation</span><span class="game-label">Official trailer · 3D Developer</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
-        <a class="game-card" href="https://www.youtube.com/watch?v=Ugz1O7IqRMw"><span class="game-media"><img src="assets/games/ruse.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></span><span class="game-info"><span class="game-info-copy"><span class="game-title">R.U.S.E.</span><span class="game-label">Official trailer · 3D Developer</span></span><svg class="arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></span></a>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=RAs02HDepc4" aria-label="Play trailer: Aphelion"><img src="assets/games/aphelion.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=RAs02HDepc4"><span class="game-title">Aphelion</span><span class="game-label">Official trailer</span></a><a class="mini-link" href="https://www.mobygames.com/game/251833/aphelion/">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=IaB0MyubRg0" aria-label="Play trailer: Banishers: Ghosts of New Eden"><img src="assets/games/banishers.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=IaB0MyubRg0"><span class="game-title">Banishers: Ghosts of New Eden</span><span class="game-label">Official trailer</span></a><a class="mini-link" href="https://www.mobygames.com/game/217498/banishers-ghosts-of-new-eden">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=6WorCBu7ZsI" aria-label="Play trailer: Jusant"><img src="assets/games/jusant.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=6WorCBu7ZsI"><span class="game-title">Jusant</span><span class="game-label">Official trailer</span></a><a class="mini-link" href="https://www.mobygames.com/game/211191/jusant">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=1Hz7y6PRchk" aria-label="Play trailer: Harmony: The Fall of Reverie"><img src="assets/games/harmony.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=1Hz7y6PRchk"><span class="game-title">Harmony: The Fall of Reverie</span><span class="game-label">Official trailer · Engine Director</span></a><a class="mini-link" href="https://www.mobygames.com/game/204325/harmony-the-fall-of-reverie">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=DRN2VgTB-J8" aria-label="Play trailer: Tell Me Why"><img src="assets/games/tell-me-why.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=DRN2VgTB-J8"><span class="game-title">Tell Me Why</span><span class="game-label">Official trailer · Lead Engine</span></a><a class="mini-link" href="https://www.mobygames.com/game/149656/tell-me-why">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=EEgfr0Zd-8o" aria-label="Play trailer: Vampyr"><img src="assets/games/vampyr.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=EEgfr0Zd-8o"><span class="game-title">Vampyr</span><span class="game-label">Official trailer</span></a><a class="mini-link" href="https://www.mobygames.com/game/109755/vampyr">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=vfs3IIiY_1s" aria-label="Play trailer: Act of Aggression"><img src="assets/games/act-of-aggression.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=vfs3IIiY_1s"><span class="game-title">Act of Aggression</span><span class="game-label">Official trailer</span></a><a class="mini-link" href="https://www.mobygames.com/game/76763/act-of-aggression">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=lw3az0LsKc0" aria-label="Play trailer: Wargame: Red Dragon"><img src="assets/games/wargame-red-dragon.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=lw3az0LsKc0"><span class="game-title">Wargame: Red Dragon</span><span class="game-label">Official trailer · 3D Programming</span></a><a class="mini-link" href="https://www.mobygames.com/game/66245/wargame-red-dragon">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=IbXaAu6kgNc" aria-label="Play trailer: Wargame: AirLand Battle"><img src="assets/games/wargame-airland-battle.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=IbXaAu6kgNc"><span class="game-title">Wargame: AirLand Battle</span><span class="game-label">Official trailer · 3D Programming</span></a><a class="mini-link" href="https://www.mobygames.com/game/63178/wargame-airland-battle">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=fPyWhf0VQbs" aria-label="Play trailer: Wargame: European Escalation"><img src="assets/games/wargame-european-escalation.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=fPyWhf0VQbs"><span class="game-title">Wargame: European Escalation</span><span class="game-label">Official trailer · 3D Programming</span></a><a class="mini-link" href="https://www.mobygames.com/game/57557/wargame-european-escalation">MobyGames</a></div></div>
+        <div class="game-card"><a class="game-media" href="https://www.youtube.com/watch?v=Ugz1O7IqRMw" aria-label="Play trailer: R.U.S.E."><img src="assets/games/ruse.jpg" width="480" height="270" loading="lazy" decoding="async" alt=""><span class="play-chip"><svg aria-hidden="true"><use href="#icon-play"/></svg></span></a><div class="game-info"><a class="game-info-copy" href="https://www.youtube.com/watch?v=Ugz1O7IqRMw"><span class="game-title">R.U.S.E.</span><span class="game-label">Official trailer</span></a><a class="mini-link" href="https://www.mobygames.com/game/51984/ruse-the-art-of-deception/">MobyGames</a></div></div>
       </div>
     </section>
 
-    <footer class="footer">Paul Quemin · Rouen, France</footer>
+    <footer class="footer">Paul Quemin · Rouen, France · <a href="https://www.mobygames.com/person/446453/paul-quemin/">MobyGames (Quémin)</a> · <a href="https://www.mobygames.com/person/1375161/paul-quemin/">MobyGames (Quemin)</a></footer>
   </main>
 
   <script>
